@@ -1,5 +1,5 @@
 const { Storage } = require('@google-cloud/storage');
-const bucketName = 'prdc19-video-upload';
+const bucketName = 'prdc19-audio-upload';
 const storage = new Storage();
 const uploadBucket = storage.bucket(bucketName);
 const { transcodeFile } = require('./lib/util');
