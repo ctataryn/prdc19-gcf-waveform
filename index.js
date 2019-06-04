@@ -28,10 +28,16 @@ exports.generateUploadLink = async (req, res) => {
 exports.generateWaveform = async (req, res) => {
   let id = req.query.id || req.body.id;
   if (id) {
-  	const mp3File = uploadBucket.file(`${id}.mp3`);
-  	return transcodeFile(id, mp3File).then( () => {
-    	console.log('waveform generated');
-  	});
+    const mp3File = uploadBucket.file(`${id}.mp3`);
+    try {
+      await transcodeFile(id, mp3File).then( () => {
+        console.log('waveform generated');
+      });
+      res.status(200).send("OK");
+    } catch(err) {
+      res.status(500).send(err);
+    }
   }
 };
+
 
