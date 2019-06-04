@@ -1,0 +1,7 @@
+{
+  "name": "prdc-gcf-waveform",
+  "version": "0.0.1",
+  "dependencies": {
+    "@google-cloud/storage": "^2.5.0"
+  }
+}
