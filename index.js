@@ -2,7 +2,7 @@ const { Storage } = require('@google-cloud/storage');
 const bucketName = 'prdc19-audio-upload';
 const storage = new Storage();
 const uploadBucket = storage.bucket(bucketName);
-const { transcodeFile } = require('./lib/util');
+const { transcodeFile, notify } = require('./lib/util');
 const util = require('util');
 
 exports.generateUploadLink = async (req, res) => {
@@ -36,10 +36,14 @@ exports.generateWaveform = async (file, context) => {
   const id = file.name.substring(0, file.name.lastIndexOf('.mp3'));
   let mp3File = uploadBucket.file(file.name);
   if (id) {
-    return await transcodeFile(id, mp3File).then( () => {
-      console.log('waveform generated');
-    });
+    try {
+      await transcodeFile(id, mp3File);
+      const pubUri = 'https://storage.googleapis.com/prdc19-waveform/'
+      notify('DONE', `${pubUri}${file.name.replace('.mp3', '.png')}`);
+    } catch(err) {
+      notify('FAIL', `Could not create waveform for ${file.name}\n${err}`);
+    }
+  } else {
+    notify('FAIL', `bad id for file`);
   }
 };
-
-
