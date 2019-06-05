@@ -16,7 +16,7 @@ This codebase is for a talk at [Prairie Dev Con](http://www.prairiedevcon.com/) 
    1. The service account must have the following IAM role:
       * `Service Account Token Creator`
 1. Google Cloud Function & Google Cloud Storage must be enabled
-1. Create two GCS buckets: `prdc-audio-upload` & `prdc-waveform`
+1. Create two GCS buckets: `prdc19-audio-upload` & `prdc19-waveform`
    * The `prdc-waveform` bucket should have `allUsers` read-access such that the pngs being generated are accessible publically
 
 ## Clone this repository
@@ -37,7 +37,7 @@ To generate an upload link for an MP3:
 To upload the MP3 and generate a waveform png:
 `curl -X put -H 'Content-Type: audio/mpeg' --upload-file ./mp3s/test000.mp3 <upload link>`
 
-This will upload an MP3 to the `prdc-audio-upload` bucket. The `prdc-generateWaveform` function will
+This will upload an MP3 to the `prdc19-audio-upload` bucket. The `prdc19-generateWaveform` function will
 then be triggered, create the waveform png and then send a `POST` request to the url specified in the `lib/util.js`
 If you don't have the ability to receive the notification, then just refresh the bucket in the Google Cloud
 Platform Web Console until the png appears.
