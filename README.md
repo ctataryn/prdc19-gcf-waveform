@@ -1,7 +1,7 @@
 ![MP3 to Waveform](/assets/images/mp3towaveform.png?raw=true "MP3 to Waveform")
 
 # Introduction
-This codebase is for a talk at [Prairie Dev Con](http://www.prairiedevcon.com/) in June 2019. Slides can be [found here](/slides/PrDC19 - Google Cloud Functions.pdf?raw=true). The demo will take an MP3 file and generate a waveform png via ffmpeg up on Google Cloud Platform.
+This codebase is for a talk at [Prairie Dev Con](http://www.prairiedevcon.com/) in June 2019. Slides can be [found here](/slides/PrDC19%20-%20Google%20Cloud%20Functions.pdf?raw=true). The demo will take an MP3 file and generate a waveform png via ffmpeg up on Google Cloud Platform.
 
 `prdc-generateUploadLink` - Generates a "signed URL" that a user will be able to POST an MP3 to. The MP3 is placed in a bucket called `prdc19-audio-upload`.
 
