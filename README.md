@@ -26,6 +26,7 @@ This codebase is for a talk at [Prairie Dev Con](http://www.prairiedevcon.com/) 
 ## Deploy
 
 `gcloud functions deploy prdc-generateUploadLink --entry-point generateUploadLink --memory 128MB --runtime nodejs8 --timeout 10s --trigger-http`
+
 `gcloud functions deploy prdc-generateWaveform --entry-point generateWaveform --memory 1024MB --runtime nodejs8 --timeout 540s --trigger-bucket prdc19-audio-upload`
 
 ## Invoking
