@@ -1,0 +1,11 @@
+{
+  "name": "prdc-gcf-waveform",
+  "version": "0.0.1",
+  "dependencies": {
+    "@google-cloud/storage": "^2.5.0",
+    "@ffmpeg-installer/ffmpeg": "^1.0.17",
+    "fluent-ffmpeg": "^2.1.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  }
+}
